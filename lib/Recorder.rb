@@ -62,10 +62,6 @@ class Recorder
 
     subcommands = []
     subcommands << RecordSubCommandOptionParser.new(:add) do |opts|
-      opts.on("-p", "--pork", "More pork") do |v|
-
-      end
-
       opts.on_run do
         puts "run add"
       end
