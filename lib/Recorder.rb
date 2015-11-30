@@ -63,7 +63,7 @@ class Recorder
     subcommands = []
     subcommands << RecordSubCommandOptionParser.new(:add) do |opts|
       opts.on_run do
-        puts "run add"
+        puts "run add #{Time.new} #{arguments}"
       end
     end
 
