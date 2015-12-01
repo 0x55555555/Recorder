@@ -39,11 +39,15 @@ class RecordSubCommandOptionParser < RecordOptionParser
   end
 end
 
+class Record
+end
+
 class Recorder
   def initialize(args)
     arguments = args.dup
 
     @verbose = false
+    @records = []
 
     global = RecordOptionParser.new do |opts|
       opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
@@ -64,6 +68,7 @@ class Recorder
     subcommands << RecordSubCommandOptionParser.new(:add) do |opts|
       opts.on_run do
         puts "run add #{Time.new} #{arguments}"
+        @records << Record.new
       end
     end
 
